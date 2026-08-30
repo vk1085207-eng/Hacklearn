@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HackLearn 🛡️</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  background:#080d12;
+  color:#f4f7fa;
+}
+
+header{
+  background:linear-gradient(135deg,#08131b,#102630);
+  padding:28px 15px;
+  text-align:center;
+  border-bottom:2px solid #00d084;
+}
+
+.logo{
+  font-size:32px;
+  font-weight:bold;
+}
+
+.logo span{
+  color:#00d084;
+}
+
+header p{
+  margin-top:8px;
+  color:#9caab5;
+}
+
+.search{
+  padding:18px 15px;
+}
+
+.search input{
+  width:100%;
+  padding:15px;
+  border-radius:14px;
+  border:1px solid #263640;
+  background:#111920;
+  color:white;
+  outline:none;
+  font-size:16px;
+}
+
+.container{
+  max-width:950px;
+  margin:auto;
+  padding:0 15px 35px;
+}
+
+.title{
+  margin:22px 0 14px;
+  font-size:23px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.card{
+  background:#111920;
+  border:1px solid #263640;
+  border-radius:18px;
+  padding:22px 12px;
+  text-align:center;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+  border-color:#00d084;
+}
+
+.icon{
+  font-size:34px;
+}
+
+.card h3{
+  margin-top:9px;
+}
+
+.card p{
+  color:#9caab5;
+  font-size:13px;
+  margin-top:6px;
+}
+
+.panel{
+  background:#111920;
+  border:1px solid #263640;
+  border-radius:18px;
+  padding:18px;
+  margin-top:18px;
+}
+
+.lesson{
+  background:#0c1319;
+  border:1px solid #25323b;
+  border-radius:13px;
+  padding:16px;
+  margin-top:12px;
+  line-height:1.6;
+}
+
+.hidden{
+  display:none;
+}
+
+.back{
+  margin-top:18px;
+  background:#18232b;
+  color:white;
+  border:1px solid #2c3a43;
+  padding:10px 15px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.option{
+  display:block;
+  width:100%;
+  margin-top:10px;
+  padding:13px;
+  border-radius:10px;
+  background:#141d24;
+  color:white;
+  border:1px solid #2c3942;
+  cursor:pointer;
+  text-align:left;
+}
+
+.option:hover{
+  border-color:#00d084;
+}
+
+.main{
+  width:100%;
+  margin-top:18px;
+  padding:14px;
+  border:0;
+  border-radius:12px;
+  background:#00d084;
+  color:#06110c;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.result{
+  margin-top:15px;
+  background:#10251d;
+  border:1px solid #176b4b;
+  padding:15px;
+  border-radius:12px;
+  text-align:center;
+  font-size:18px;
+}
+
+footer{
+  padding:30px 10px;
+  text-align:center;
+  color:#66747e;
+  font-size:13px;
+}
+
+@media(max-width:420px){
+  .grid{
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🛡️ <span>Hack</span>Learn</div>
+  <p>Ethical Hacking • Cyber Security • Learning</p>
+</header>
+
+<div class="search">
+  <input
+    id="search"
+    type="text"
+    placeholder="🔎 Lesson या topic खोजें..."
+    onkeyup="searchCards()"
+  >
+</div>
+
+<div class="container">
+
+  <!-- HOME -->
+  <section id="home">
+
+    <h2 class="title">🚀 Start Learning</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="icon">🔐</div>
+        <h3>Cyber Security</h3>
+        <p>Security basics सीखें</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🌐</div>
+        <h3>Networking</h3>
+        <p>Network fundamentals</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🐧</div>
+        <h3>Linux Basics</h3>
+        <p>Linux commands और concepts</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🎣</div>
+        <h3>Phishing</h3>
+        <p>Fake messages पहचानें</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🧠</div>
+        <h3>Security Quiz</h3>
+        <p>अपना knowledge test करें</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🧪</div>
+        <h3>Safe Labs</h3>
+        <p>Legal practice challenges</p>
+      </div>
+
+    </div>
+
+    <h2 class="title">📚 Beginner Lessons</h2>
+
+    <div class="panel">
+
+      <div class="lesson">
+        <b>1. Cyber Security क्या है?</b>
+        <p>
+          Cyber Security का उद्देश्य computers, networks,
+          accounts और data को unauthorized access और
+          cyber threats से सुरक्षित रखना है।
+        </p>
+      </div>
+
+      <div class="lesson">
+        <b>2. Strong Password</b>
+        <p>
+          अलग-अलग accounts के लिए अलग password रखना,
+          लंबा password इस्तेमाल करना और MFA/2FA enable
+          करना account security को बेहतर बनाता है।
+        </p>
+      </div>
+
+      <div class="lesson">
+        <b>3. Phishing क्या है?</b>
+        <p>
+          Phishing में attacker fake message या website
+          के जरिए sensitive information लेने की कोशिश कर सकता है।
+          Unknown links और suspicious requests से सावधान रहें।
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- QUIZ PAGE -->
+
+  <section id="quizPage" class="hidden">
+
+    <button class="back" onclick="goHome()">← वापस</button>
+
+    <h2 class="title">🧠 Cyber Security Quiz</h2>
+
+    <div class="panel">
+
+      <div id="quiz"></div>
+
+      <button class="main" onclick="checkQuiz()">
+        ✅ Submit Quiz
+      </button>
+
+      <div id="result"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- LAB PAGE -->
+
+  <section id="labPage" class="hidden">
+
+    <button class="back" onclick="goHome()">← वापस</button>
+
+    <h2 class="title">🧪 Safe Practice Lab</h2>
+
+    <div class="panel">
+
+      <div class="lesson">
+        <b>Challenge 1 — Suspicious Message</b>
+
+        <p>
+          तुम्हें एक message मिलता है:
+          “आपका account बंद होने वाला है। अभी link खोलकर
+          password verify करें।”
+        </p>
+
+        <p style="margin-top:10px;">
+          क्या करना चाहिए?
+        </p>
+
+        <button class="main" onclick="labAnswer('safe')">
+          🔐 Link न खोलें और official app/site से check करें
+        </button>
+
+        <button class="main" onclick="labAnswer('unsafe')">
+          ⚠️ तुरंत link खोलकर password डालें
+        </button>
+
+        <div id="labResult"></div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+<footer>
+  © 2026 HackLearn • Ethical Cyber Security Learning
+</footer>
+
+
+<script>
+
+/* =========================
+   QUIZ QUESTIONS
+========================= */
+
+const quizQuestions = [
+
+  {
+    q:"Cyber Security का मुख्य उद्देश्य क्या है?",
+    options:[
+      "Data और systems को सुरक्षित रखना",
+      "Internet बंद करना",
+      "Games बनाना",
+      "Computer की speed कम करना"
+    ],
+    answer:0
+  },
+
+  {
+    q:"Phishing से बचने का अच्छा तरीका क्या है?",
+    options:[
+      "हर unknown link खोलना",
+      "Suspicious links को verify करना",
+      "हर message का password देना",
+      "Unknown files install करना"
+    ],
+    answer:1
+  },
+
+  {
+    q:"2FA का उपयोग क्यों किया जाता है?",
+    options:[
+      "Extra security के लिए",
+      "Internet speed बढ़ाने के लिए",
+      "Storage बढ़ाने के लिए",
+      "Screen brightness बढ़ाने के लिए"
+    ],
+    answer:0
+  },
+
+  {
+    q:"Strong password में क्या होना बेहतर है?",
+    options:[
+      "सिर्फ अपना नाम",
+      "सिर्फ 123456",
+      "लंबा और unique password",
+      "सिर्फ जन्मदिन"
+    ],
+    answer:2
+  },
+
+  {
+    q:"Unknown email attachment के साथ क्या करना चाहिए?",
+    options:[
+      "तुरंत खोलना",
+      "Verify किए बिना न खोलना",
+      "सबको forward करना",
+      "Password भेजना"
+    ],
+    answer:1
+  }
+
+];
+
+
+/* =========================
+   CREATE QUIZ
+========================= */
+
+function createQuiz(){
+
+  const quiz =
+    document.getElementById("quiz");
+
+  quiz.innerHTML="";
+
+  quizQuestions.forEach((item,index)=>{
+
+    let html = `
+      <div style="margin-top:20px;font-size:18px;font-weight:bold;">
+        ${index+1}. ${item.q}
+      </div>
+    `;
+
+    item.options.forEach((option,optIndex)=>{
+
+      html += `
+        <label class="option">
+
+          <input
+            type="radio"
+            name="q${index}"
+            value="${optIndex}"
+          >
+
+          ${option}
+
+        </label>
+      `;
+
+    });
+
+    quiz.innerHTML += html;
+
+  });
+
+}
+
+
+/* =========================
+   CHECK QUIZ
+========================= */
+
+function checkQuiz(){
+
+  let score=0;
+
+  quizQuestions.forEach((item,index)=>{
+
+    const selected =
+      document.querySelector(
+        'input[name="q'+index+'"]:checked'
+      );
+
+    if(
+      selected &&
+      Number(selected.value) === item.answer
+    ){
+      score++;
+    }
+
+  });
+
+  document.getElementById("result").innerHTML = `
+    <div class="result">
+      🏆 आपका Score<br>
+      <b>${score} / ${quizQuestions.length}</b>
+    </div>
+  `;
+
+}
+
+
+/* =========================
+   SHOW QUIZ
+========================= */
+
+document.querySelectorAll(".card")[4]
+  .addEventListener("click",function(){
+
+    document.getElementById("home")
+      .classList.add("hidden");
+
+    document.getElementById("quizPage")
+      .classList.remove("hidden");
+
+    createQuiz();
+
+    window.scrollTo(0,0);
+
+  });
+
+
+/* =========================
+   SHOW LAB
+========================= */
+
+document.querySelectorAll(".card")[5]
+  .addEventListener("click",function(){
+
+    document.getElementById("home")
+      .classList.add("hidden");
+
+    document.getElementById("labPage")
+      .classList.remove("hidden");
+
+    window.scrollTo(0,0);
+
+  });
+
+
+/* =========================
+   LAB ANSWER
+========================= */
+
+function labAnswer(type){
+
+  const box =
+    document.getElementById("labResult");
+
+  if(type==="safe"){
+
+    box.innerHTML = `
+      <div class="result">
+        ✅ सही! पहले official source से message verify करें।
+      </div>
+    `;
+
+  }else{
+
+    box.innerHTML = `
+      <div class="result">
+        ❌ गलत! Suspicious link पर password नहीं डालना चाहिए।
+      </div>
+    `;
+
+  }
+
+}
+
+
+/* =========================
+   HOME
+========================= */
+
+function goHome(){
+
+  document.getElementById("home")
+    .classList.remove("hidden");
+
+  document.getElementById("quizPage")
+    .classList.add("hidden");
+
+  document.getElementById("labPage")
+    .classList.add("hidden");
+
+  window.scrollTo(0,0);
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+function searchCards(){
+
+  const value =
+    document.getElementById("search")
+    .value
+    .toLowerCase();
+
+  document.querySelectorAll(".card")
+    .forEach(card=>{
+
+      const text =
+        card.innerText.toLowerCase();
+
+      card.style.display =
+        text.includes(value)
+        ? ""
+        : "none";
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
